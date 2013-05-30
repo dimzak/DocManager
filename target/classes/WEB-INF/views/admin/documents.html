@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Document Manager</title>
+</head>
+<body>
+ 
+<h2>Document Manager</h2>
+ 
+<h3>Add new document</h3>
+<form method="post" action="save.html" th:object="${document}" enctype="multipart/form-data">
+    <table>
+    <tr>
+        <td><label>Name</label></td>
+        <td><input type="text" th:field="*{name}" /></td> 
+    </tr> 
+    <tr>
+        <td><label>Description</label></td>
+        <td><textarea th:field="*{description}"></textarea></td>
+    </tr>
+    <tr>
+        <td><label>Document</label></td>
+        <td><input type="file" name="file" id="file"></input></td>
+    </tr>
+    <tr>
+        <td><label>Status</label></td>
+        <td><input type="text" th:field="*{status}" placeholder="0"/></td> 
+    </tr>    
+     <tr>
+        <td><label>Priority</label></td>
+        <td><input type="text" th:field="*{priority}" /></td> 
+    </tr> 
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Add Document"/>
+        </td>
+    </tr>
+</table>  
+</form>
+ 
+<br/>
+<h3>Document List</h3>
+<table class="data">
+<tr>
+	<th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>Update File</th>
+</tr>
+    <tr th:each="document : ${documentList}" >
+    	<td th:text="${document.id}">Book</td>
+        <td th:text="${document.name}">Book</td>
+        <td th:text="${document.description}">${document.description}</td>
+        <td th:text="${document.status}">Status</td>
+        <td th:text="${document.priority}">Priority</td>
+        <td width="20px">
+            <a th:href="@{'/download/' + ${document.id} + '.html'}"><img
+                th:src="@{/resources/img/save_icon.gif}" border="0"
+                title="Download this document"/></a>   
+         
+            <a th:href="@{'/remove/' + ${document.id} + '.html'}"
+                onclick="return confirm('Are you sure you want to delete this document?')"><img
+                th:src="@{/resources/img/delete_icon.gif}" border="0"
+                title="Delete this document"/></a> 
+            <td>&nbsp;</td> 
+        <td>
+            <form method="post" th:action="@{'/update/' + ${document.id} + '.html'}" 
+            th:object="${document}" enctype="multipart/form-data">
+    <table>
+    <tr>
+        <td><label>Description</label></td>
+        <td><textarea th:field="*{description}"></textarea></td>
+    </tr>
+    <tr>
+        <td><label>Document</label></td>
+        <td><input type="file" name="file2" id="file2"></input></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Update Document"/>
+        </td>
+    </tr>
+</table>  
+</form>
+		</td>
+             
+        </td>
+        </tr>
+</table>
+<h3>User List</h3>
+<table class="data">
+<tr>
+    <th>ID</th>
+    <th>FistName</th>
+    <th>LastName</th>
+    <th>Role</th>
+    <th>&nbsp;</th>
+</tr>
+    <tr th:each="user : ${userList}" >
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.firstname}">John</td>
+        <td th:text="${user.lastname}">Doe</td>
+        <td th:text="${user.role}">someone</td>
+        </tr>
+</table>
+</body>
+</html>
