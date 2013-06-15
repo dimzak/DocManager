@@ -18,6 +18,7 @@ public class Flow {
 	@Column(name="flow_id")
 	private int flow_id;
 	
+	//line of the user
 	@Column(name="line")
 	private int line;
 	

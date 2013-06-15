@@ -1,17 +1,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:layout="http://www.thymeleaf.org">
 <head>
-<title>Student Management</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/resources/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" th:href="@{/resources/bootstrap/css/bootstrap-responsive.min.css}" />
+	<link rel="stylesheet" href="css/style.css" th:href="@{/resources/css/style.css}" />
+	<title>Human Resources</title>
 </head>
 <body>
-<h1>User Management</h1>
+<br/>
+<div th:substituteby="index.html::logout"></div>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">DocManager</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="/admin/users.html" th:href="@{/admin/index.html}">My	Panel</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+<div class="container">
+<h1>Human Resources</h1>
 <form action="user.do" method="post" th:object="${user}">
 
-	<table>
-		<!-- <tr>
-			<td>User ID</td>
-			<td><input type="text" th:field="*{user.id}" /></td>
-		</tr> -->
+	<table class="table table-stripped">
 		<tr>
 			<td>User Id</td>
 			<td><input type="text" th:field="*{id}" /></td>
@@ -33,25 +55,25 @@
 			<td><input type="text" th:field="*{password}" /></td>
 		</tr>
 		<tr>
-			<td>Role</td>
+			<td>Role:</td>
 			<td><input type="text" th:field="*{role}" /></td>
 		</tr>
 		<tr>
-			<td>Document Creator</td>
+			<td>Doc Creator:</td>
 			<td><input type="text" th:field="*{cancreate}" /></td>
 		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="submit" name="action" value="Add" />
-				<input type="submit" name="action" value="Edit" />
-				<input type="submit" name="action" value="Delete" />
-				<input type="submit" name="action" value="Search" />
-			</td>
-		</tr>
 	</table>
+				<ul class="inline">
+				<li><input type="submit" name="action" value="Add" class="btn btn-primary" /></li>
+				<li><input type="submit" name="action" value="Edit" class="btn btn-warning"/></li>
+				<li><input type="submit" name="action" value="Delete" class="btn btn-danger"/></li>
+				<li><input type="submit" name="action" value="Search" class="btn btn-inverse"/></li>
+				</ul>
 </form>
 <br/>
-<table border="1">
+<br/>
+<br/>
+<table class="table table-hover">
 	<th>ID</th>
 	<th>User Name</th>
 	<th>First name</th>
@@ -67,5 +89,6 @@
 			<td th:text="${user.cancreate}">cancreate</td>
 		</tr>
 </table>
+</div> 
 </body>
 </html>

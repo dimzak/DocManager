@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class DocumentController {
 	
-	@Autowired
+/*	@Autowired
 	private DocumentDao documentDao;
 	
 	@Autowired
@@ -144,6 +144,6 @@ public class DocumentController {
          
         return "redirect:/index.html";
     }
-    
+    */
     
 }

@@ -23,12 +23,6 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Transactional
-	public List<User> listUsers() {
-		return 
-		(List<User>)sessionFactory.getCurrentSession().createQuery("from User").list();
-	}
-
-	@Transactional
 	public void remove(int userid) {		
 		sessionFactory.getCurrentSession().delete(get(userid));
 	}

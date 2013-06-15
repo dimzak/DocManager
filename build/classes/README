@@ -1,0 +1,88 @@
+README
+
+	I)	Copyright Notice
+	II)	Basic Info
+	III)	Setting Up
+	IV)	SourceCode Navigation
+
+
+--------------------------------------
+
+I)	Copyright Notice:
+
+
+ Copyright 2013 Dimitrios Zakas
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+---------------------------------------
+
+II)	Basic Info
+
+DocManager is an application for user collaboration on documents and 
+specific workflows.
+Includes 3 different roles(User, Admin, Human Resources)
+Main Process:
+User Creation
+Document Creation
+Flow of Users on this Document
+When a user is next in line a field it will appear in his TODO list
+User updates Document
+When flow is over, the document "status" is equal to "maxusers"
+Do whatever you like from now on!
+
+--Notice--
+If you choose to build the database from the sample docdb.sql(explained below)
+pay attention to the indexing on flows
+By default if a document or user is deleted, the associated flow will be
+deleted too
+
+
+Created With:Maven, Spring(MVC + Security), Hibernate, Thymelef, Bootstrap, MySQL
+
+Tested on JBoss AS 7
+
+---------------------------------------
+
+III)	Setting up
+
+I have included the database schema for convenience(docdb.xml)
+An alternate is to add <prop key="hibernate.hbm2ddl.auto">create</prop>
+in the Hibernate configuration but it will need additional configuration
+in database
+
+Change the properties in the jdbc.properties
+
+Project is build with Maven, you know what to do :^)
+
+navigate to localhost:8080/DocManager
+
+Enjoy!
+
+
+---------------------------------------
+
+IV)	SourceCode Navigation
+
+Java sourcecode is in src/main/java
+It breaks into layers then(Controller, Dao, Service, Model)
+
+Configs are in src/main/webapp/WEB-INF
+
+Thymeleaf views are in WEB-INF/views
+
+jdbc.properties is in WEB-INF
+
+hibernate.cfg.xml is in src/main/resources
+
+
