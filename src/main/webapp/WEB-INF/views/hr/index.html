@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Thymeleafexamples - Spring security</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/resources/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" th:href="@{/resources/bootstrap/css/bootstrap-responsive.min.css}" />
+        <link rel="stylesheet" href="css/style.css" th:href="@{/resources/css/style.css}" />
+    </head>
+    <body>
+<div id="push"></div>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">DocManager</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="/login.html" th:href="@{/login.html}">My	Panel</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    	<div th:substituteby="index.html::logout"></div>
+        <h1>&nbsp;Human Resources Panel</h1>
+        <p>&nbsp;&nbsp;&nbsp;This is the <b>hr</b> panel</p>
+        <p>&nbsp;&nbsp;&nbsp;You can select either to crud users or check all documents.<br/>
+        </p>
+        <p>&nbsp;<a href="/hr/users.html" th:href="@{/hr/user}" class="btn btn-primary">Users</a>
+        &nbsp;<a href="/hr/documents.html" th:href="@{/hr/alldoc}" class="btn btn-success">Documents</a></p>
+    </body>
+</html>

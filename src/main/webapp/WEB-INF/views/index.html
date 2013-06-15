@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Welcome to DocManager</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/resources/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" th:href="@{/resources/bootstrap/css/bootstrap-responsive.min.css}" />
+        <link rel="stylesheet" href="css/style.css" th:href="@{/resources/css/style.css}" />
+    </head>
+    <body>
+<br/><br/>
+ <div th:fragment="logout" class="logout"
+             sec:authorize="isAuthenticated()">
+            Logged user: <span sec:authentication="name">Bob</span> |
+            Role: <span sec:authentication="principal.authorities">[ROLE_USER]</span> |
+            <a href="index.html" th:href="@{/j_spring_security_logout}"><i class="icon-white icon-home"></i>Logout</a>
+        </div>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">DocManager</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../index.html"  th:href="@{../index.html}" class="active">Home</a></li>
+              <li><a href="/login.html" th:href="@{/login.html}">My	Panel</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <br/>
+    	<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+        <h1>Workflow Document System</h1>
+        <p>Create/Update/Delete Documents and Users.<br/>
+        Document and flow assignment.<br/>
+        Three different roles with three different responsibilities.</p>
+        <br/>
+        <br/>
+        <h2>Source Code:</h2>
+        <p>Code is available <a href="https://github.com/dimzak/DocManager">here</a></p><br/>
+        <h2>Zones:</h2>
+        <p>&nbsp;<a href="/admin/index.html" th:href="@{/admin/index.html}" class="btn btn-danger">Admins</a>
+        &nbsp;<a href="/user/index.html" th:href="@{/user/index.html}" class="btn btn-warning">Users</a>
+        &nbsp;<a href="/hr/index.html" th:href="@{/hr/index.html}" class="btn btn-success">HR</a></p>
+        </div>
+        <br/>
+        <div class="span4">
+        <div class="hero-unit">
+  			<h2>First Step:</h2>
+  				<p>You can either Login using the menu or the button above.<br/>Enjoy!</p>
+  				<p>
+    			<a href="/login.html" th:href="@{/login.html}" class="btn btn-primary btn-large"><i class="icon-white icon-user"></i> Login</a>
+  				</p>
+		</div>
+		</div>
+  		<div class="span12">
+  		<h3>Developed With:</h3>
+  		<img th:src="@{/resources/img/spring-logo.png}" class="img-rounded" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<img th:src="@{/resources/img/thymeleaflogosmall.png}" class="img-rounded"  height="150" width="150"/>
+  		<img th:src="@{/resources/img/bootstrap-logo.png}" class="img-rounded" />
+  		<img th:src="@{/resources/img/hibernate.gif}" class="img-rounded" />
+  		</div>
+        <div id="push"></div>
+        <div id="push"></div>
+         </div>
+         <div id="footer">
+      <div class="container">
+        <p class="muted credit">Have fun, Report bugs, Consider contributing!<br/>
+        <a href="http://www.apache.org/licenses/LICENSE-2.0">Released under Apache License</a><br/></p>
+      </div>
+    </div>
+    </div>
+</body>
+</html>

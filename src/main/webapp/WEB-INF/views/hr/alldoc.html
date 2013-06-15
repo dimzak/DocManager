@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Thymeleafexamples - Spring security</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/resources/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" th:href="@{/resources/bootstrap/css/bootstrap-responsive.min.css}" />
+        <link rel="stylesheet" href="css/style.css" th:href="@{/resources/css/style.css}" />
+    </head>
+    <body>
+<div id="push"></div>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">DocManager</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="/login.html" th:href="@{/login.html}">My	Panel</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    	<div th:substituteby="index.html::logout"></div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8">
+<h3 class="text-success">Document List</h3>
+<table class="table table-hover">
+<tr>
+	<th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>MaxUsers</th>
+</tr>
+    <tr th:each="document : ${documentList}" >
+    	<td th:text="${document.id}">Book</td>
+        <td th:text="${document.name}">Book</td>
+        <td th:text="${document.description}">${document.description}</td>
+        <td th:text="${document.status}">Status</td>
+        <td th:text="${document.priority}">Priority</td>
+</tr>
+
+</table>
+ 
+</div>
+</div>
+</div>
+</body>
+</html>
