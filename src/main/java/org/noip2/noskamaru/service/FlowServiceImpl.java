@@ -22,11 +22,10 @@ public class FlowServiceImpl implements FlowService {
 	@Transactional
 	public List<Document> listByUser(int userid) {
 		 Query q = sessionFactory.getCurrentSession()
-		.createSQLQuery("SELECT * FROM documents d, flows f WHERE" +
-				" d.doc_id = " +
-				"(SELECT f.doc_id FROM flows f " +
-				"WHERE f.user_id = :userid)" +
-				" AND d.status = f.line")
+		.createSQLQuery("SELECT d.* FROM documents d WHERE" +
+				" d.doc_id IN " +
+				"(SELECT f.doc_id FROM flows f,documents d " +
+				"WHERE f.user_id = :userid  AND f.line = d.status )")
 		 		.addEntity(Document.class);		 
 				q.setParameter("userid", userid);
 		return q.list();
