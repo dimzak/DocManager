@@ -112,11 +112,6 @@
                 th:src="@{/resources/img/save_icon.gif}" border="0"
                 title="Download this document"/></a>   
          
-            <a th:href="@{'/admin/remove/' + ${document.id} + '.html'}"
-                onclick="return confirm('Are you sure you want to delete this document?')"><img
-                th:src="@{/resources/img/delete_icon.gif}" border="0"
-                title="Delete this document"/></a> 
-            <td>&nbsp;</td> 
         <td>
             <form method="post" th:action="@{'/admin//update/' + ${document.id} + '.html'}" 
             th:object="${document}" enctype="multipart/form-data">

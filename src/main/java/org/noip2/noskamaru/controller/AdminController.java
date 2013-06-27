@@ -152,7 +152,7 @@ public class AdminController {
     }
 
  
-    @RequestMapping("/download/{documentId}")
+    @RequestMapping("admin/download/{documentId}")
     public String download(@PathVariable("documentId")
             Integer documentId, HttpServletResponse response) {
          
@@ -175,7 +175,7 @@ public class AdminController {
         return null;
     }
  
-    @RequestMapping("/remove/{documentId}")
+    @RequestMapping("admin/remove/{documentId}")
     public String remove(@PathVariable("documentId")
             Integer documentId) {
          

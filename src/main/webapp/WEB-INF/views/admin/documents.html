@@ -110,8 +110,8 @@
         <td width="20px">
             <a th:href="@{'/admin/download/' + ${document.id} + '.html'}"><img
                 th:src="@{/resources/img/save_icon.gif}" border="0"
-                title="Download this document"/></a>
-            <td>&nbsp;</td> 
+                title="Download this document"/></a>   
+         
         <td>
             <form method="post" th:action="@{'/admin//update/' + ${document.id} + '.html'}" 
             th:object="${document}" enctype="multipart/form-data">
